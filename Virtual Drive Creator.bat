@@ -1,11 +1,6 @@
 @echo off
 
-set VERSION=1.0.0
-
-
-
-
-
+set VERSION=1.0.2
 
 title Virtual Drive Creator
 cd C:\Users\%username%\Documents\VDC
@@ -35,6 +30,14 @@ echo Create Virtual Drive
 echo Delete Virtual Drive
 echo Change Virtual Drive Location
 echo.
+
+if not %VERSIONGET%==%VERSION% (
+echo There is an update available.
+echo Please install the update here: https://koertsprojects.netlify.app/projects/vdc
+echo.
+)
+
+
 echo Enter the thing to do.
 echo Example: Create Virtual Drive
 set /P PROGRAM="> "
@@ -49,6 +52,13 @@ goto start
 )
 echo Virtual Drive Creator
 echo.
+
+if not %VERSIONGET%==%VERSION% (
+echo There is an update available.
+echo Please install the update here: https://koertsprojects.netlify.app/projects/vdc
+echo.
+)
+
 echo Please enter the drive letter for the Virtual Drive.
 echo Example: A
 set /p DRIVELETTER="> "
@@ -67,6 +77,13 @@ goto start
 )
 echo Virtual Drive Creator
 echo.
+
+if not %VERSIONGET%==%VERSION% (
+echo There is an update available.
+echo Please install the update here: https://koertsprojects.netlify.app/projects/vdc
+echo.
+)
+
 echo Please enter the drive letter to delete the Virtual Drive.
 echo Example: A
 set /P DRIVELETTERD="> "
@@ -80,6 +97,13 @@ goto start
 Cls
 echo Virtual Drive Creator
 echo.
+
+if not %VERSIONGET%==%VERSION% (
+echo There is an update available.
+echo Please install the update here: https://koertsprojects.netlify.app/projects/vdc
+echo.
+)
+
 echo Please enter the drive location for the Virtual Drive.
 echo Example: C:\Users\username\Desktop\Games
 set /p DRIVEC="> "
@@ -98,15 +122,7 @@ for /f "Delims=" %%a in (version.txt) do (
 set VERSIONGET=%%a
 )
 
-if %VERSIONGET%==%VERSION% (
-echo No updates available.
 goto start
-) else (
-echo There is a update available. (%VERSIONGET%)
-pause
-start https://koertsprojects.netlify.app/projects/vdc
-exit
-)
 
 
 :config0
